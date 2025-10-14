@@ -4,6 +4,7 @@ date: 2025-10-13 10:00:00 +0000
 categories: [Web, Security]
 tags: [OAuth2, Google, Authorization]
 pin: false
+author: Jiaming HUANG
 image:
   path: /assets/img/oauth2-diagram.png
   alt: OAuth 2.0 Flow Diagram
@@ -47,12 +48,12 @@ That’s exactly how **OAuth 2.0** works — it provides a secure, limited, and 
 
 ## 3. The Four Key Roles in OAuth 2.0
 
-| Role | Analogy | Description |
-|------|----------|-------------|
-| **Resource Owner** | You, the hotel guest | The user who owns the data |
-| **Client** | The valet | The third-party app requesting access |
-| **Authorization Server** | The hotel front desk | Verifies identity and issues tokens |
-| **Resource Server** | The parking lot | Hosts the protected resources |
+| Role                     | Analogy              | Description                           |
+| ------------------------ | -------------------- | ------------------------------------- |
+| **Resource Owner**       | You, the hotel guest | The user who owns the data            |
+| **Client**               | The valet            | The third-party app requesting access |
+| **Authorization Server** | The hotel front desk | Verifies identity and issues tokens   |
+| **Resource Server**      | The parking lot      | Hosts the protected resources         |
 
 In most cases, the **authorization server** and **resource server** are operated by the same provider — e.g., Google.
 
@@ -163,12 +164,12 @@ That sounds simpler, but it’s **extremely unsafe**.
 
 If the access token were sent directly through the browser, the following risks would occur:
 
-| Risk | Description |
-|------|--------------|
-| **Browser history leak** | Token could appear in URL and be stored |
-| **Referer header leak** | Token might be sent to third-party sites |
-| **Malicious plugins** | Browser extensions could steal the token |
-| **XSS attacks** | Cross-site scripts could extract the token |
+| Risk                     | Description                                |
+| ------------------------ | ------------------------------------------ |
+| **Browser history leak** | Token could appear in URL and be stored    |
+| **Referer header leak**  | Token might be sent to third-party sites   |
+| **Malicious plugins**    | Browser extensions could steal the token   |
+| **XSS attacks**          | Cross-site scripts could extract the token |
 
 Even worse — the `client_secret` would need to be used in the front-end, exposing it to everyone.
 
@@ -178,10 +179,10 @@ Even worse — the `client_secret` would need to be used in the front-end, expos
 
 OAuth 2.0 solves this by splitting the flow into two channels:
 
-| Channel | Location | Data Exchanged |
-|----------|-----------|----------------|
-| **Front Channel** | User’s browser | Temporary `authorization_code` (low risk) |
-| **Back Channel** | Secure server-to-server | `client_secret` and `access_token` |
+| Channel           | Location                | Data Exchanged                            |
+| ----------------- | ----------------------- | ----------------------------------------- |
+| **Front Channel** | User’s browser          | Temporary `authorization_code` (low risk) |
+| **Back Channel**  | Secure server-to-server | `client_secret` and `access_token`        |
 
 Even if someone steals the authorization code, it’s useless — they can’t exchange it for an access token without the secret key that only lives on the backend.
 
@@ -189,10 +190,10 @@ Even if someone steals the authorization code, it’s useless — they can’t e
 
 ### Comparison Table
 
-| Approach | Exposed in Browser | Risk Level |
-|-----------|--------------------|-------------|
-| Direct (no code) | `access_token` (high value, long-lived) | ❌ Unsafe |
-| Authorization Code Flow | `authorization_code` (short-lived, one-time) | ✅ Secure |
+| Approach                | Exposed in Browser                           | Risk Level |
+| ----------------------- | -------------------------------------------- | ---------- |
+| Direct (no code)        | `access_token` (high value, long-lived)      | ❌ Unsafe   |
+| Authorization Code Flow | `authorization_code` (short-lived, one-time) | ✅ Secure   |
 
 This “extra step” makes all the difference — it isolates sensitive data from untrusted environments.
 
@@ -200,11 +201,11 @@ This “extra step” makes all the difference — it isolates sensitive data fr
 
 ## 7. Summary
 
-| Feature | Description |
-|----------|--------------|
-| **High security** | Passwords are never exposed to third-party apps |
-| **Scoped access** | Users can control which permissions to grant |
-| **Revocable tokens** | Users can revoke access anytime |
+| Feature                             | Description                                             |
+| ----------------------------------- | ------------------------------------------------------- |
+| **High security**                   | Passwords are never exposed to third-party apps         |
+| **Scoped access**                   | Users can control which permissions to grant            |
+| **Revocable tokens**                | Users can revoke access anytime                         |
 | **Front-end / Back-end separation** | Sensitive data is exchanged securely on the server side |
 
 OAuth 2.0 may seem complex at first glance, but its layered design is what keeps the modern web secure.  
