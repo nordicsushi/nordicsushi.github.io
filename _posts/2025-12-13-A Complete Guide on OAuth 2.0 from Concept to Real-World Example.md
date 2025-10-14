@@ -1,5 +1,5 @@
 ---
-title: A Complete Guide on OAuth 2.0 from Concept to Real-World Example
+title: "A Complete Guide on OAuth 2.0: from Concept to Real-World Example"
 date: 2025-10-13 10:00:00 +0000
 categories: [Web, Security]
 tags: [OAuth2, Google, Authorization]
