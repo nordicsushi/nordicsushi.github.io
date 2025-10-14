@@ -4,11 +4,8 @@ description: "A practical guide to building secure, scalable SaaS with multi-ten
 date: 2025-10-14 12:00:00
 last_modified_at: 2025-10-14 12:00:00
 categories: [Architecture, SaaS]
-permalink: /blog/demystifying-multi-tenancy-access-control-saas-architecture/
-lang: en
+tags: [Database]
 author: Jiaming HUANG
-toc: true
-toc_sticky: true
 image:
   path: /assets/img/multi-tenant.png
   alt: Multi-tenancy
