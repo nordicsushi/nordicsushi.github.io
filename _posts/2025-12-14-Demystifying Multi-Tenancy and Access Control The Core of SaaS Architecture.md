@@ -1,10 +1,9 @@
 ---
 title: "Demystifying Multi-Tenancy and Access Control: The Core of SaaS Architecture"
 description: "A practical guide to building secure, scalable SaaS with multi-tenancy, PostgreSQL RLS, and RBAC on Supabase."
-date: 2025-10-14 12:00:00
-last_modified_at: 2025-10-14 12:00:00
+date: 2025-10-14 10:00:00 +0000
 categories: [Architecture, SaaS]
-tags: [Database]
+tags: [Database, Supabase]
 author: Jiaming HUANG
 image:
   path: /assets/img/multi-tenant.png
