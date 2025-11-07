@@ -1,6 +1,6 @@
 ---
 title: "Understanding Pickle: What It Really Saves (and Why It Sometimes Betrays You)"
-date: 2025-10-13 10:00:00 +0000
+date: 2025-11-07 10:00:00 +0000
 categories: [Python]
 tags: [Python, Serialization]
 pin: false
